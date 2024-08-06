@@ -1,0 +1,18 @@
+<%- include('../headers/header.ejs') %>
+
+<div class="bg-colour bg-colour d-flex  log justify-content-center ">
+    <div class="main container  d-flex flex-column align-items-center">
+        <div class="login_section p-4 rounded shadow my-5">
+            <h2 class="text-center log_header my-4">USER</h2>
+            <form action="/userEdit/<%= user._id %>" method="POST">
+                <label for="username" class="fw-bold my-3">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter username" value="<%= user.username %>" class="border-1 w-100 rounded-1 py-1 ps-1">
+                <label for="role" class="fw-bold my-3">Role</label>
+                <input type="text" id="role" name="role" placeholder="Enter role" value="<%= user.role %>" class="border-1 w-100 rounded-1 py-1 ps-1">
+                <button type="submit" class="btn mt-4  bg-danger-subtle fw-bolder px-4 text-light w-100 log_btn mb-3">Save Changes</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../footers/footers.ejs') %>

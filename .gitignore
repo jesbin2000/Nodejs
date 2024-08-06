@@ -1,0 +1,4 @@
+# . gitignore. Prevents unnecessary files from being tracked by Git. Helps maintain a clean and manageable repository size
+
+node_modules/
+.env

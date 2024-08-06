@@ -1,0 +1,119 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nosifer&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nosifer&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* font-family: "Poppins", sans-serif; */
+/* font-family: "Nosifer", sans-serif; */
+/* font-family: "Montserrat", sans-serif; */
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh !important;
+    
+}
+
+.header-txt{
+    font-family: "Kanit", sans-serif;
+}
+
+.nosifer{
+    font-family: "Nosifer", sans-serif;
+}
+
+.montserrat{
+    font-family: "Montserrat", sans-serif;
+}
+
+.back-secondary{
+    background-color: #f9f8f6;
+}
+
+.logo{
+    font-family: "Nosifer", sans-serif;   
+}
+.login_section{
+    width: 340px;
+    background-color: #f9f8f6;
+}
+
+input{
+    outline: none;
+}
+
+.log_header{
+    font-family: "Nosifer", sans-serif;
+}
+
+.login_section .log_btn{
+    background-color: #2d3e32 !important;
+}
+
+.login_section .log_btn:hover{
+    background-color: #3f5a47 !important;
+}
+
+
+body{
+    /* height: 100vh !important; */
+    background-color:#b5e0ad70 !important;
+}
+
+.user_profile{
+    font-size: 10px !important;
+    letter-spacing: 1px !important;
+    font-weight: 900 !important;
+}
+
+.post-title{
+    font-family: "Montserrat", sans-serif;
+}
+.no-border {
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.posts{
+    height: 240px !important;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.post-content{
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+    max-width: 100%;
+    height: 70px;
+}
+.main-container{
+    height: 600px !important;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+::-webkit-scrollbar
+{
+    display: none;
+}
+
+.user-table td a:hover {
+    text-decoration: underline !important;
+    color: rgb(10, 10, 210) !important;
+}
+
+.posts:hover{
+    box-shadow : 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    height: 250px !important;
+    transition: ease-in-out 0.3s;
+}
+
+.posts a:hover {
+    text-decoration: underline !important;
+}

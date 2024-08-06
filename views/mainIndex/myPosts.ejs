@@ -1,0 +1,17 @@
+<%- include('../headers/header.ejs') %>
+<main class="container gap-3 d-flex flex-column px-4 py-5">
+    <% data.forEach(element => { %>
+        <div class="posts border p-2">
+            <h4><%= element.title %></h4>
+            <p><%= element.author %></p>
+            <p><%= element.content %></p>
+            <div>
+                <a href="#" class="btn me-5 fw-bolder p-3 btn-outline-dark border-2">Edit</a>
+                <a href="#" class="btn me-5 fw-bolder p-3 btn-outline-dark border-2">Delete</a>
+            </div>
+
+
+        </div>
+    <% }) %>
+</main>
+<%- include('../footers/footers.ejs') %>

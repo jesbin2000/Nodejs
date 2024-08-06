@@ -1,0 +1,42 @@
+<div class="h-100">
+<%- include('../headers/header.ejs') %>
+
+<div class="bg-colour bg-colour d-flex  log justify-content-center ">
+    <div class="main container  d-flex flex-column align-items-center">
+        <div class="login_section p-4 rounded shadow my-5">
+            <h2 class="text-center log_header my-4"><%= locals.header  %></h2>
+            <% if (typeof message !== 'undefined' && message !== null) { %>
+                <p class="text-center text-danger m-0"><%= message %></p>
+            <% } %>
+                
+            <% if (locals.header == "LOG IN") { %>
+                <form action="/signIn" method="POST" class=" d-flex flex-column gap-3">
+                <% }
+                else { %>
+                    <form action="/adminPage" method="POST" class=" d-flex flex-column gap-3">
+                <% } %>
+
+                <label for="username" class="fw-bold d-flex justify-content-sm-between">User name
+
+                    <% if (locals.header == "LOG IN") { %>
+                        <a href="/admin" class="fw-medium text-dark"> Admin Login</a>
+                        <% }
+                        else { %>
+                            <a href="/signIn" class="fw-medium text-dark"> User Login</a>
+                        <% } %>
+
+                </label>
+                <input type="text" id="username" name="username" placeholder="Enter username" class="border-1 w-100 rounded-1 py-1 ps-1">
+                <label for="password" class="fw-bold">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter password" class="border-1 w-100 rounded-1 py-1 ps-1">
+                <button type="submit" class="btn mt-4  bg-danger-subtle fw-bolder px-4 text-light w-100 log_btn mb-3">Log In</button>
+                <% if (locals.header == "LOG IN") { %>
+                    <p>Not registered yet?<a href="/signup">SignUp</a></p>
+                <% } %>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../footers/footers.ejs') %>
+</div>

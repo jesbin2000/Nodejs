@@ -1,0 +1,34 @@
+<%- include('../headers/header.ejs') %>
+
+<div class="container align-items-center">
+<div class="add-post d-flex w-75 flex-column mx-auto my-5 back-secondary p-5 shadow rounded-3 ">
+    <div class="post-title mb-4 ">
+        <h2 class="fw-bolder "><%= locals.header %></h2>
+    </div>
+
+    
+        <% if (locals.check) { %>
+            <form action="/profile/<%=post._id  %>" method="post" class="d-flex flex-column gap-2">
+
+                <label for="title" class="fs-5 ms-2"><b>Title</b></label>
+                <input type="text" placeholder="Post Title" name="title" class="ps-2 py-2 border-0" value="<%= post.title  %>" >
+        
+                <label for="body" class="fs-5 ms-2  "><b>Content</b></label>
+                <textarea name="body" cols="50" rows="10" class="border-0 px-3 py-3 no-border" placeholder="Content" > <%= post.content  %></textarea>
+            <button type="submit" class="btn fw-bolder p-3 text-bg-dark mt-3 ms-auto px-5">Edit Post</button>
+        </form>
+        <% } else { %>
+            <form action="/addPost" method="POST" class="d-flex flex-column gap-2">
+
+                <label for="title" class="fs-5 ms-2"><b>Title</b></label>
+                <input type="text" placeholder="Post Title" name="title" class="ps-2 py-2 border-0">
+        
+                <label for="body" class="fs-5 ms-2  "><b>Content</b></label>
+                <textarea name="body" cols="50" rows="10" class="border-0 px-3 py-3 no-border" placeholder="Content" ></textarea>
+            <button type="submit" class="btn fw-bolder p-3 text-bg-dark mt-3 ms-auto px-5">Add</button>
+        </form>
+        <% } %>
+</div>
+
+<%- include('../footers/footers.ejs') %>
+</div>
