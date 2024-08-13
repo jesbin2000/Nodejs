@@ -66,10 +66,10 @@ const adminPage = async ( req, res) =>{
         description: "Blog created NodeJS & Express"
     };
     let token = req.headers.cookie.split("token=")[1];
-    let adminId = jwt.verify(token,process.env.JWT_SECRET)
-    console.log(adminId);
+    // console("token");
+    let adminData = jwt.verify(token,process.env.JWT_SECRET)
     let slno = 1;
-    const admin = await Admin.findById(adminId.adminId);
+    const admin = await Admin.findById(adminData.adminId);
     let users = await User.find({ role: "user" });
 
     res.render('mainIndex/adminPage',{users,admin,message:null,slno })
@@ -80,12 +80,14 @@ const userPost = async (req, res) => {
     const locals = {
         title: "user profile",
         description: "Blog created NodeJS & Express",
-        admin : true
+        admin : true,
+        check: true
     };
     try{
-        const id = req.params.id;    
+        const id = req.params.id;
         let posts = await Post.find({author:id}).populate("author", "username");
-        posts = posts.reverse()
+            posts = posts.reverse();
+
         res.render('mainIndex/profile',{locals,posts})
     }
     catch(error){
@@ -93,11 +95,42 @@ const userPost = async (req, res) => {
     }
 }
 
+const editPost = async (req, res) =>{
+    try{
+
+        // console.log(req.user);
+        
+
+        const locals = {
+            title: "user profile",
+            description: "Blog created NodeJS & Express",
+            admin : true,
+            check:true
+        };
+        const id = req.params.id;
+        // console.log(id);
+
+        const {title,body} = req.body;
+
+        const post = await Post.findByIdAndUpdate(id,{title:title,content:body},{new:true})
+        // console.log(post);
+        
+        res.redirect(`/userProfile/${post.author}`)
+
+    }
+    catch(error){
+        console.log(error);
+    }
+
+}
+
 
 
 const userEditLayout = async (req, res) => {
 
     const userId = req.params.id;
+   
+    
     const user = await User.findById(userId)
     res.render('mainIndex/editUser', {user})
 
@@ -123,12 +156,12 @@ const userEdit = async(req, res) => {
 
 const userDelete = async (req, res) => {
 
-    await Post.deleteOne({_id : req.params.id});
-    res.redirect('adminPage')
+    await User.deleteOne({_id : req.params.id});
+    res.redirect('/adminPage')
 
 }
 
 
 module.exports = {signInLayout,adminSignIn,userPost,
                 userEditLayout,userEdit,adminPage,
-                userDelete}
+                userDelete,editPost}

@@ -1,3 +1,4 @@
+
 <%- include('../headers/header.ejs') %>
 
 <div class="container align-items-center">
@@ -8,7 +9,12 @@
 
     
         <% if (locals.check) { %>
-            <form action="/profile/<%=post._id  %>" method="post" class="d-flex flex-column gap-2">
+        
+            <% if (locals.admin) { %>
+                <form action="/userProfile/<%= post._id  %>" method="post" class="d-flex flex-column gap-2">
+            <% } else { %>
+                <form action="/profile/<%= post._id  %>" method="post" class="d-flex flex-column gap-2">
+            <% } %>
 
                 <label for="title" class="fs-5 ms-2"><b>Title</b></label>
                 <input type="text" placeholder="Post Title" name="title" class="ps-2 py-2 border-0" value="<%= post.title  %>" >
@@ -27,8 +33,6 @@
                 <textarea name="body" cols="50" rows="10" class="border-0 px-3 py-3 no-border" placeholder="Content" ></textarea>
             <button type="submit" class="btn fw-bolder p-3 text-bg-dark mt-3 ms-auto px-5">Add</button>
         </form>
-        <% } %>
+        <% } %></div>
 </div>
-
 <%- include('../footers/footers.ejs') %>
-</div>

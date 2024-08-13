@@ -105,7 +105,7 @@ const userSignUp = async (req, res) => {
     }
 
     const {username , password} = req.body;
-    console.log(username ,password);
+    // console.log(username ,password);
     
     const existingUser = await User.findOne({username});
     if(password==null || username==null ){
@@ -155,6 +155,7 @@ const usersignIn = async (req, res) => {
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
         req.userId = user._id;
         res.cookie('token', token, { httpOnly: true }).render('mainIndex/main', { posts, locals, message: null,user});
+        // res.redirect('/homePage')
     } catch (error) {
         console.error(error);
         res.status(500).render('mainIndex/login', { locals, message: 'Internal server error' });
@@ -170,7 +171,7 @@ const addPost = async (req, res) =>{
         const { title, body} =req.body;
         const post = new Post({title:title, content:body,author:user.userId})
         await post.save();
-        res.redirect('/homePage')
+        res.redirect('/')
     });
 
 }
@@ -196,7 +197,6 @@ const editPost = async(req, res) =>{
     
     const token = req.headers.cookie.split("token=")[1];
     let userId = jwt.verify(token,process.env.JWT_SECRET).userId;
-    console.log(userId);
     const {title, body} = req.body;
     await Post.findByIdAndUpdate({_id:postId},{title:title,content:body})
     res.redirect(`/profile/${userId}`)
@@ -204,6 +204,7 @@ const editPost = async(req, res) =>{
 
 const logOut = (req, res) =>{
         res.clearCookie('token')
+        
         res.redirect('/')
 }
 

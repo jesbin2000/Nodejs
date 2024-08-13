@@ -1,34 +1,37 @@
 const jwt = require('jsonwebtoken');
-require("dotenv").config()
+require("dotenv").config();
+const User = require('../models/users');
 
-const authMiddleware = async ( req, res, next )=>{
-    try{
-        
-        if(req.headers.cookie){
-            let token  = req.headers.cookie.split('token=')[1]
-            const decoded =jwt.verify(token,process.env.JWT_SECRET);
-            req.adminId = decoded.adminId ? decoded.adminId : decoded.userId;
-            const user = await Users.findById(req.userId)
-            if(user.role === 'user')
-            {
-            next();
+const userMiddleware = async (req, res, next) => {
+    try {
+        if (req.cookies && req.cookies.token) {
+            const token = req.cookies.token;
+            
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            if(decoded.userId){
+                
+                var user = await User.findById(decoded.userId);
+            
+            }else{
+                user =await User.findById(decoded.adminId)
             }
-            else
-            {
-            res.redirect('/signIn');
+
+            if (user && (user.role === 'user' || user.role === 'admin')) {
+                next();
+            } else {
+                res.redirect('/signIn');
             }
-        }else{
+        } else {
             const locals = {
-                header : "LOG IN",
+                header: "LOG IN",
                 title: "Sign In",
                 description: "Blog created NodeJS & Express"
-            }
-            res.render('mainIndex/login', {locals});
+            };
+            res.render('mainIndex/login', { locals });
         }
-    }catch(error)
-    {
-        res.status(401).json( {message: 'Unauthorized'} );
+    } catch (error) {
+        res.status(401).json({ message: 'Unauthorized' });
     }
-}
+};
 
-module.exports = {authMiddleware} ;
+module.exports = { userMiddleware };

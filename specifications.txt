@@ -1,0 +1,51 @@
+
+BloggeR : A Blogging Platform
+
+Description:
+
+The Blogging Platform is a web application that enables users and admins to manage blog posts.
+Users can register, log in, create and edit their own posts, and view all posts . Admins have
+additional privileges to manage user posts, user details, and create their own posts.
+
+
+    FEATURES
+
+User Specifications
+User Authentication
+Registration
+Login
+Logout
+Post Management
+Create Post
+Edit Own Post
+View All Posts
+
+    ADMIN SPECIFICATIONS
+
+Admin Authentication
+Login
+Logout
+User Management
+Edit User Post
+Edit User Name
+Edit User Role
+Delete User
+Post Management
+Create Post
+Edit Own Post
+View All Posts
+
+TECHNOLOGIES USED
+
+# Frontend: HTML, CSS,Bootstrap,JavaScript
+# Backend: Node.js, Express.js
+# Database: MongoDB
+
+DEVELOPMENT NOTES
+
+# Handle errors such as duplicate email registration, incorrect login credentials, unauthorized access to edit posts, etc.
+# Validate user input to maintain data integrity and security.
+# Use JWT (JSON Web Token) for secure authentication.
+# Ensure proper role-based access control for admin functionalities.
+
+
