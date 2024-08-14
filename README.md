@@ -16,15 +16,15 @@ PROJECT STRUCTURE
 
 ├── controllers/
 │   └── config/
-│       └── db.js           -- Database connection file
-├── public/                 -- Static files (CSS, JS, images)
+│       └── db.js           _-- Database connection file_
+├── public/                 _-- Static files (CSS, JS, images)_
 ├── routes
-│   ├── user.js             -- User routes
-│   └── admin.js            -- Admin routes
-├── views/                  -- EJS templates
-├── .env                    -- Environment variables
-├── app.js                  -- Main application file
-└── package.json            -- Project dependencies and scripts
+│   ├── user.js             _-- User routes_
+│   └── admin.js            _-- Admin routes_
+├── views/                  _-- EJS templates_
+├── .env                    _-- Environment variables_
+├── app.js                  _-- Main application file_
+└── package.json            _-- Project dependencies and scripts_
 
 
 PREREQUISITES
