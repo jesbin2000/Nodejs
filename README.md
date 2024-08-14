@@ -64,12 +64,3 @@ ROUTES
 
 # User Routes: Handled in routes/user.js.
 # Admin Routes: Handled in routes/admin.js.
-
-CONTRIBUTING
-
-Contributions are welcome! Please fork the repository, make your changes, and submit a pull request.
-
-
-LICENCES
-
-This project is licensed under the MIT License - see the LICENSE file for details.
